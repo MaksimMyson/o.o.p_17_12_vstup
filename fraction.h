@@ -9,8 +9,15 @@ private:
     int denominator;
 
 public:
-    Fraction();  // Конструктор за замовчуванням
+    // Конструктори
+    Fraction() : numerator(0), denominator(1) {}
+    Fraction(int num, int denom) : numerator(num), denominator(denom) {}
 
+    // Функції для доступу до даних
+    inline int getNumerator() const { return numerator; }
+    inline int getDenominator() const { return denominator; }
+
+    // Функції для введення та виведення
     void inputFraction();
     void displayFraction() const;
 
@@ -22,7 +29,7 @@ public:
 
     // Допоміжні методи
     int findGCD(int a, int b) const;
-    void simplify();  // Спрощення дробу
+    void simplify();
 };
 
 #endif // FRACTION_H

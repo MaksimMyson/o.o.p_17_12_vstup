@@ -1,22 +1,18 @@
 #include "fraction.h"
-#include <iostream>
-
-Fraction::Fraction() : numerator(0), denominator(1) {
-    // Конструктор можна залишити порожнім або ініціалізувати за замовчуванням.
-}
+using namespace std;
 
 void Fraction::inputFraction() {
-    std::cout << "Enter numerator: ";
-    std::cin >> numerator;
+    cout << "Enter numerator: ";
+    cin >> numerator;
 
     do {
-        std::cout << "Enter denominator (not zero): ";
-        std::cin >> denominator;
+        cout << "Enter denominator (not zero): ";
+        cin >> denominator;
     } while (denominator == 0);
 }
 
 void Fraction::displayFraction() const {
-    std::cout << numerator << '/' << denominator;
+    cout << numerator << '/' << denominator;
 }
 
 Fraction Fraction::add(const Fraction& other) const {
