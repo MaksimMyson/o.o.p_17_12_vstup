@@ -11,15 +11,18 @@ private:
     double z;
 
 public:
-    Point();  // Конструктор за замовчуванням
+    // Конструктори
+    Point() : x(0.0), y(0.0), z(0.0) {}
+    Point(double newX, double newY, double newZ) : x(newX), y(newY), z(newZ) {}
 
-    void inputData();
-    void displayData() const;
+    // Функції для доступу до координат
+    inline double getX() const { return x; }
+    inline double getY() const { return y; }
+    inline double getZ() const { return z; }
 
-    double getX() const;
-    double getY() const;
-    double getZ() const;
-
+    // Інші методи
+    void inputPoint();
+    void displayPoint() const;
     void saveToFile(const std::string& filename) const;
     void loadFromFile(const std::string& filename);
 };

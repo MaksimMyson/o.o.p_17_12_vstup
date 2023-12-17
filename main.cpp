@@ -5,10 +5,10 @@ int main() {
     Point point;
 
     // Введення даних
-    point.inputData();
+    point.inputPoint();
 
     // Виведення даних
-    point.displayData();
+    point.displayPoint();
 
     // Збереження в файл
     point.saveToFile("point_data.txt");
@@ -18,7 +18,7 @@ int main() {
     loadedPoint.loadFromFile("point_data.txt");
 
     // Виведення даних завантаженої точки
-    loadedPoint.displayData();
+    loadedPoint.displayPoint();
 
     return 0;
 }

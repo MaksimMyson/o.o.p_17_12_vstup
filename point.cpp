@@ -1,11 +1,7 @@
 #include "point.h"
 using namespace std;
 
-Point::Point() : x(0.0), y(0.0), z(0.0) {
-   
-}
-
-void Point::inputData() {
+void Point::inputPoint() {
     cout << "Enter x coordinate: ";
     cin >> x;
 
@@ -16,20 +12,8 @@ void Point::inputData() {
     cin >> z;
 }
 
-void Point::displayData() const {
+void Point::displayPoint() const {
     cout << "Point Coordinates: (" << x << ", " << y << ", " << z << ")\n";
-}
-
-double Point::getX() const {
-    return x;
-}
-
-double Point::getY() const {
-    return y;
-}
-
-double Point::getZ() const {
-    return z;
 }
 
 void Point::saveToFile(const string& filename) const {
