@@ -1,17 +1,15 @@
 #include "student.h"
-#include <iostream>
-
 using namespace std;
 
 int main() {
-    Student student;
+    // Використання класу Student
+    Student student1;
+    student1.inputData(); // Введення даних
+    student1.displayData(); // Виведення даних
 
-    student.inputData();
-    student.displayData();
-
-    cout << "\nAccessing Data Using Accessors:\n";
-    cout << "Full Name: " << Student::getFullName(student) << "\n";
-    cout << "Group Number: " << Student::getGroupNumber(student) << "\n";
+    Student student2("John Doe", "01/01/2000", "123-456-7890",
+        "City", "Country", "University", "UniversityCity", "UniversityCountry", "Group");
+    student2.displayData(); // Виведення даних
 
     return 0;
 }

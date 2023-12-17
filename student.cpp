@@ -1,58 +1,70 @@
 #include "student.h"
-#include <iostream>
-
 using namespace std;
 
-Student::Student() {
+// Конструктор за замовчуванням
+Student::Student() : fullName(nullptr) {
+    // Ініціалізація інших членів класу за замовчуванням
 }
 
+// Конструктор з параметрами
+Student::Student(const string& name, const string& date, const string& phone,
+    const string& city, const string& country,
+    const string& uniName, const string& uniCity, const string& uniCountry,
+    const string& group) : birthDate(date), phoneNumber(phone), city(city),
+    country(country), universityName(uniName),
+    universityCity(uniCity), universityCountry(uniCountry),
+    groupNumber(group) {
+    // Виділення пам'яті для ПІБ та копіювання значення
+    fullName = new string(name);
+}
+
+// Деструктор
+Student::~Student() {
+    // Звільнення виділеної пам'яті для ПІБ
+    delete fullName;
+}
 
 void Student::inputData() {
-    cout << "Enter Full Name: ";
-    getline(cin, fullName);
+    // Введення даних студента
+    fullName = new string;  // Виділення пам'яті перед введенням
+    cout << "Enter full name: ";
+    getline(cin, *fullName);
 
-    cout << "Enter Date of Birth: ";
-    getline(cin, dateOfBirth);
+    cout << "Enter birth date: ";
+    getline(cin, birthDate);
 
-    cout << "Enter Contact Phone: ";
-    getline(cin, contactPhone);
+    cout << "Enter phone number: ";
+    getline(cin, phoneNumber);
 
-    cout << "Enter City: ";
+    cout << "Enter city: ";
     getline(cin, city);
 
-    cout << "Enter Country: ";
+    cout << "Enter country: ";
     getline(cin, country);
 
-    cout << "Enter School Name: ";
-    getline(cin, schoolName);
+    cout << "Enter university name: ";
+    getline(cin, universityName);
 
-    cout << "Enter School City: ";
-    getline(cin, schoolCity);
+    cout << "Enter university city: ";
+    getline(cin, universityCity);
 
-    cout << "Enter School Country: ";
-    getline(cin, schoolCountry);
+    cout << "Enter university country: ";
+    getline(cin, universityCountry);
 
-    cout << "Enter Group Number: ";
+    cout << "Enter group number: ";
     getline(cin, groupNumber);
 }
 
-void Student::displayData() {
-    cout << "\nStudent Information:\n";
-    cout << "Full Name: " << fullName << "\n";
-    cout << "Date of Birth: " << dateOfBirth << "\n";
-    cout << "Contact Phone: " << contactPhone << "\n";
+
+void Student::displayData() const {
+    // Виведення даних студента
+    cout << "Full Name: " << getFullName() << "\n";
+    cout << "Birth Date: " << birthDate << "\n";
+    cout << "Phone Number: " << phoneNumber << "\n";
     cout << "City: " << city << "\n";
     cout << "Country: " << country << "\n";
-    cout << "School Name: " << schoolName << "\n";
-    cout << "School City: " << schoolCity << "\n";
-    cout << "School Country: " << schoolCountry << "\n";
+    cout << "University Name: " << universityName << "\n";
+    cout << "University City: " << universityCity << "\n";
+    cout << "University Country: " << universityCountry << "\n";
     cout << "Group Number: " << groupNumber << "\n";
-}
-
-string Student::getFullName(const Student& student) {
-    return student.fullName;
-}
-
-string Student::getGroupNumber(const Student& student) {
-    return student.groupNumber;
 }
